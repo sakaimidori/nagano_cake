@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   #addressルーティング設定
  get 'addresses' => 'public/addresses#index'
  post 'addresses' => 'public/addresses#create'
- get 'addresses/:id/edit' => 'public/addresses#edit'
- patch 'addresses/:id' => 'public/addresses#update'
-
+ get 'addresses/:id/edit' => 'public/addresses#edit', as: 'edit_addresses'
+ patch 'addresses/:id' => 'public/addresses#update', as: 'address'
+ delete 'addresses/:id' => 'public/addresses#destroy'
 
 
   # 顧客用
