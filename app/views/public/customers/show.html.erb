@@ -1,12 +1,11 @@
-<%= @customer.last_name %><%= @customer.first_name %> さんの会員詳細
-
-<h4>会員ID</h4>
-<%= @customer.id %>
+<h2>マイページ</h2>
+<h2>登録情報</h2>
+<%= link_to "編集する", customers_edit_path %>
 
 <h4>氏名</h4>
 <%= @customer.last_name %><%= @customer.first_name %>
 
-<h4>フリガナ</h4>
+<h4>カナ</h4>
 <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
 
 <h4>郵便番号</h4>
@@ -21,7 +20,8 @@
 <h4>メールアドレス</h4>
 <%= @customer.email %>
 
-<h4>会員ステータス</h4>
-<%= @customer.is_active %></br>
 
-<%= link_to "編集する",edit_admin_customer_path(@customer) %>
+<h2>配送先</h2>
+
+
+<h2>注文履歴</h2>

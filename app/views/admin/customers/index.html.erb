@@ -2,17 +2,27 @@
 
 <% @customers.each do |customer| %>
 
-<h4>会員ID</h4>
-<%= customer.id %>
+  <table>
 
-<h4>氏名</h4>
-<%= customer.last_name %><%= customer.first_name %>
+    <thaed>
+      <tr>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </tr>
+    </thaed>
 
-<h4>メールアドレス</h4>
-<%= customer.email %>
+    <tbody>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.last_name %><%= customer.first_name %></td>
+        <td><<%= customer.email %></td>
+        <td><%= customer.is_active %></td>
+      </tr>
+    </tbody>
 
-<h4>ステータス</h4>
-<%= customer.is_active %>
-
+  </table>
 
 <% end %>
+

@@ -7,7 +7,8 @@ class Item < ApplicationRecord
   end
 
   def get_item_image(width,height)
-    item_image.variant(resize_to_limit:[width,height])
+    image.variant(resize_to_limit: [width, height]).processed
+
   end
 
 end
