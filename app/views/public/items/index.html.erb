@@ -1,0 +1,19 @@
+<h2>商品一覧</h2>
+
+<div>
+(全<%= @items.count %>件)
+</div>
+
+
+<% @items.each do |item| %>
+
+  <%= link_to item_path(item.id) do %>
+    <%= image_tag item.get_item_image(200,100) %></br>
+  <% end %>
+
+  <%= item.name %></br>
+
+  ￥<%= item.price %></br>
+
+
+<% end %>

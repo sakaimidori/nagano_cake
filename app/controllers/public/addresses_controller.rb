@@ -33,9 +33,6 @@ class Public::AddressesController < ApplicationController
   end
 
 
-
-
-
   private
 
   def address_params

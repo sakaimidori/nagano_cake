@@ -1,31 +1,48 @@
 Rails.application.routes.draw do
 
-  # 管理者用
-  # URL /admin/sign_in ...
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-    sessions: "admin/sessions"
-  }
+#会員側のルーティング設定
+  root to: "public/homes#top"
+  get 'about' => 'public/homes#about',as: 'about'
 
-  #customersルーティング設定
+  #public/customers
   get 'customers' => 'public/customers#show'
   patch 'customers' => 'public/customers#update'
   get 'customers/edit' => 'public/customers#edit'
   get 'customers/confirm' => 'public/customers#confirm'
   patch 'customers/withdraw' => 'public/customers#withdraw'
 
-  #addressルーティング設定
+  #public/addresses
  get 'addresses' => 'public/addresses#index'
  post 'addresses' => 'public/addresses#create'
  get 'addresses/:id/edit' => 'public/addresses#edit', as: 'edit_addresses'
  patch 'addresses/:id' => 'public/addresses#update', as: 'address'
  delete 'addresses/:id' => 'public/addresses#destroy'
 
+ #public/items
+ get 'items' => 'public/items#index'
+ get 'items/:id' => 'public/items#show', as: 'item'
+
+ #public/cart_items
+ get 'cart_items' => 'public/cart_items#index'
+ patch 'cart_items/:id' => 'public/cart_items#update'
+ delete 'cart_items/:id' => 'public/cart_items#destroy'
+ delete 'cart_items/all_destroy' => 'public/cart_items#all_destroy'
+ post 'cart_items' => 'public/cart_items#create'
 
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
+  }
+
+ 
+ 
+ 
+ # 管理者用
+  # URL /admin/sign_in ...
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+    sessions: "admin/sessions"
   }
 
   #管理者側のルーティング設定
@@ -36,9 +53,7 @@ Rails.application.routes.draw do
   end
 
 
-  #会員側のルーティング設定
-  root to: "public/homes#top"
-  get 'about' => 'public/homes#about',as: 'about'
+
 
 
 
