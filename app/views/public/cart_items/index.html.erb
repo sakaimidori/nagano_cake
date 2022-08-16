@@ -18,6 +18,7 @@
       <td><%= cart_item.item.add_tax_price %></td>
       <td><%= cart_item.amount %></td>
       <td><%= cart_item.subtotal %></td>
+      <td><%= link_to "削除する", cart_items_destroy_path(cart_item), method: :delete %></td>
       <% @total_price += cart_item.subtotal %>
     </tr>
   <% end %>
