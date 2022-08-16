@@ -25,8 +25,8 @@ Rails.application.routes.draw do
  #public/cart_items
  get 'cart_items' => 'public/cart_items#index'
  patch 'cart_items/:id' => 'public/cart_items#update'
- delete 'cart_items/:id' => 'public/cart_items#destroy'
  delete 'cart_items/all_destroy' => 'public/cart_items#all_destroy'
+ delete 'cart_items/:id' => 'public/cart_items#destroy'
  post 'cart_items' => 'public/cart_items#create'
 
   # 顧客用
@@ -36,9 +36,9 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
- 
- 
- 
+
+
+
  # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {

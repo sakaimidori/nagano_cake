@@ -4,9 +4,9 @@ class Item < ApplicationRecord
   belongs_to :genre
   has_one_attached :image
 
-
+  #消費税の計算
   def add_tax_price
-    (self.price * 1.10).round
+    (self.price * 1.10).floor
   end
 
 

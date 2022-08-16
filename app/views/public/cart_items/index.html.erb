@@ -1,0 +1,29 @@
+<h2>ショッピングカート</h2>
+
+<%= link_to "カートを空にする", cart_items_all_destroy_path, method: :delete %>
+
+<table>
+
+  <thead>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+  </thead>
+
+  <tbody>
+  <% @cart_items.each do |cart_item| %>
+    <tr>
+      <td><%= cart_item.item.name %></td>
+      <td><%= cart_item.item.add_tax_price %></td>
+      <td><%= cart_item.amount %></td>
+      <td><%= cart_item.subtotal %></td>
+      <% @total_price += cart_item.subtotal %>
+    </tr>
+  <% end %>
+
+  </tbody>
+
+</table>
+
+<%= @total_price %>
