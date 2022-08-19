@@ -24,10 +24,18 @@ Rails.application.routes.draw do
 
  #public/cart_items
  get 'cart_items' => 'public/cart_items#index'
- patch 'cart_items/:id' => 'public/cart_items#update'
+ patch 'cart_items/:id' => 'public/cart_items#update', as: 'cart_items_update'
  delete 'cart_items/all_destroy' => 'public/cart_items#all_destroy'
  delete 'cart_items/:id' => 'public/cart_items#destroy', as: 'cart_items_destroy'
  post 'cart_items' => 'public/cart_items#create'
+
+ #public/order_items
+ get 'orders/new' => 'public/orders#new'
+ post 'orders/confirm' => 'public/orders#confirm'
+ get 'orders/thanx' => 'public/orders#thanx'
+ post 'orders' => 'public/orders#create'
+ get 'orders' => 'public/orders#index'
+ get 'orders/:id' => 'public/orders#show'
 
   # 顧客用
   # URL /customers/sign_in ...

@@ -6,10 +6,10 @@
           transfer: "銀行振込"
 
 
-  ja:
-    enums:
-      order:
-       order_status:
+
+
+
+        order_status:
           wating_payment: "入金待ち"
           confirm_payment: "入金確認"
           making: "制作中"
@@ -17,8 +17,8 @@
           finish_shipping: "発送済み"
 
 
-  ja:
-    enums:
+
+
       order_item:
         product_status:
           impossible_making: "製作不可"
