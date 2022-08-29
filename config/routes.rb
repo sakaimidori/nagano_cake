@@ -29,7 +29,7 @@ Rails.application.routes.draw do
  delete 'cart_items/:id' => 'public/cart_items#destroy', as: 'cart_items_destroy'
  post 'cart_items' => 'public/cart_items#create'
 
- #public/order_items
+ #public/orders
  get 'orders/new' => 'public/orders#new'
  post 'orders/confirm' => 'public/orders#confirm'
  get 'orders/thanx' => 'public/orders#thanx'

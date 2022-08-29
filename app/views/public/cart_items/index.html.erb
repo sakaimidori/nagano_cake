@@ -18,7 +18,7 @@
       <td><%= cart_item.item.add_tax_price %></td>
       <td>
         <%= form_with model: cart_item, url: cart_items_update_path(cart_item), method: :patch do |f| %>
-          <%= f.select :amount, [['1個',1],['2個',2],['3個',3],['4個',4],['5個',5],['6個',6],['7個',7],['8個',8],['9個',9],['10個',10]], :prompt => "cart_item.amount" %>
+          <%= f.select :amount, cart_item.amount_options, :prompt => "cart_item.amount" %>
           <%= f.submit "変更" %>
         <% end %>
       </td>
@@ -38,3 +38,5 @@
   合計金額
   <%= @total_price %>
 </div>
+
+<%= link_to "情報入力に進む",orders_new_path %>
