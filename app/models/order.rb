@@ -5,6 +5,13 @@ class Order < ApplicationRecord
   has_many :order_items
   belongs_to :customer
 
+  def total_amount
+    @total = 0
+    self.order_items.each do |order_item|
+      @total += order_item.amount
+    end
+    return @total
+  end
 
 
 end
