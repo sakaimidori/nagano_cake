@@ -11,10 +11,14 @@
 <%= @order.name %>
 
 <h4>支払い方法</h4>
-<%= @order.payment_method %>
+<%= @order.payment_method_i18n %>
 
 <h4>注文ステータス</h4>
-<%= @order.order_status %>
+<%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
+  <%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
+  <%= f.submit "更新" %>
+<% end %>
+
 
 
 <table>
@@ -33,8 +37,22 @@
           <td><%= order_item.price_tax_included %></td>
           <td><%= order_item.amount %></td>
           <td><%= order_item.subtotal %></td>
-          <td><%= order_item.product_status %></td>
+          <td>
+            <%= form_with model: order_item, url: admin_order_item_path(order_item), method: :patch do |f| %>
+              <%= f.select :product_status, OrderItem.product_statuses.keys.map {|k| [I18n.t("enums.order_item.product_status.#{k}"), k]} %>
+              <%= f.submit "更新" %>
+            <% end %>
+          </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<h4>商品合計</h4>
+<%= @order_items.sum(&:subtotal) %>円
+
+<h4>送料</h4>
+<%= @order.postage %>円
+
+<h4>請求金額合計</h4>
+<%= @order.amount_billed %>円

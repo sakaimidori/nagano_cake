@@ -48,6 +48,14 @@ class Public::OrdersController < ApplicationController
     redirect_to orders_thanx_path
   end
 
+  def index
+    @orders = current_customer.orders
+
+  end
+
+  def show
+  end
+
   private
 
   def order_params

@@ -47,18 +47,23 @@ Rails.application.routes.draw do
 
 
 
+
  # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
 
+  #管理者トップページ(注文履歴一覧)
+  get 'admin' => 'admin/homes#top'
+
   #管理者側のルーティング設定
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:new, :create, :index, :show, :edit,:update]
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:index, :show, :update]
+    resources :orders, only: [:show, :update]
+    resources :order_items, only: [:update]
   end
 
 
