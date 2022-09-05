@@ -1,8 +1,9 @@
 <h2>注文履歴詳細</h2>
 
 <h4>購入者</h4>
-<%= current_customer.last_name %><%= current_customer.first_name %>
-
+<%= link_to admin_path do %>
+  <%= current_customer.last_name %><%= current_customer.first_name %>
+<% end %>
 <h4>注文日</h4>
 <%= @order.created_at.strftime('%Y/%m/%d') %>
 

@@ -1,29 +1,29 @@
-<h2>会員情報編集</h2>
+<h4>会員情報編集</h4>
 
 <%= form_with model:@customer,url: customers_path do |f| %>
-    <h4>氏名</h4>
+    <h5>氏名</h5>
     <%= f.text_field :last_name %>
     <%= f.text_field :first_name %>
 
-    <h4>フリガナ</h4>
+    <h5>フリガナ</h5>
     <%= f.text_field :last_name_kana %>
     <%= f.text_field :first_name_kana %>
 
-    <h4>郵便番号</h4>
+    <h5>郵便番号</h5>
     <%= f.text_field :postal_code %>
 
-    <h4>住所</h4>
+    <h5>住所</h5>
     <%= f.text_field :address %>
 
-    <h4>電話番号</h4>
+    <h5>電話番号</h5>
     <%= f.text_field :telephone_number %>
 
-    <h4>メールアドレス</h4>
+    <h5>メールアドレス</h5>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %></br>
 
-    <%= f.submit "編集内容を保存" %>
+    <%= f.submit "編集内容を保存", class: "btn btn-sm btn-success" %>
 
-    <%= link_to "退会する", customers_confirm_path %>
+    <%= link_to "退会する", customers_confirm_path, class: "btn btn-sm btn-danger" %>
 
 
 <% end %>
