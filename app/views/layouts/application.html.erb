@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <header class="border-bottom border-dark">
+    <header class="border-bottom border-dark" style="height:70px;">
+
       <nav class="navbar navbar-expand navbar-light">
         <a class="navbar-brand" href="/">
           <span>LOGO</span>
@@ -40,7 +41,7 @@
               <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "注文履歴一覧" %>
+              <%= link_to "注文履歴一覧", admin_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %>
@@ -70,8 +71,7 @@
     <%= yield %>
     </main>
 
-    <footer class="border-bottom border-dark pt-5 pb-4">
-    </footer>
+    <footer class ="fixed-bottom border-top border-dark" style="height:70px;"> </footer>
 
   </body>
 

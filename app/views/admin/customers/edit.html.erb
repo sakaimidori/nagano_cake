@@ -1,37 +1,68 @@
-<%= @customer.last_name %><%= @customer.first_name %> さんの会員情報編集
-
-<h4>会員ID</h4>
-<%= @customer.id %>
-
-<%= form_with model:@customer, url: admin_customer_path(@customer.id) do |f| %>
-
-  <h4>氏名</h4>
-  <%= f.text_field :last_name %>
-  <%= f.text_field :first_name %>
-
-  <h4>フリガナ</h4>
-  <%= f.text_field :last_name_kana %>
-  <%= f.text_field :first_name_kana %>
-
-  <h4>郵便番号</h4>
-  <%= f.text_field :postal_code %>
-
-  <h4>住所</h4>
-  <%= f.text_field :address %>
-
-  <h4>電話番号</h4>
-  <%= f.text_field :telephone_number %>
-
-  <h4>メールアドレス</h4>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-
-  <h4>会員ステータス</h4>
-  <%= f.radio_button :is_active, 'true' %>
-  <%= f.label :is_active, '有効', value: true %>
-  <%= f.radio_button :is_active, "false" %>
-  <%= f.label :is_active, "退会", value: false %>
-
-  <%= f.submit "変更を保存" %>
+  <div class= "container m-5">
 
 
-<% end %>
+    <h5>
+    <%= @customer.last_name %><%= @customer.first_name %> さんの会員情報編集
+    </h5>
+
+    <div class= "row m-3">
+
+      <div class= "col-3">
+        <div class= "mt-2">会員ID</div>
+
+        <div class= "mt-2">氏名</div>
+
+        <div class= "mt-2">フリガナ</div>
+
+        <div class= "mt-3">郵便番号</div>
+
+        <div class= "mt-2">住所</div>
+
+        <div class= "mt-3">電話番号</div>
+
+        <div class= "mt-3">メールアドレス</div>
+
+        <div class= "mt-2">会員ステータス</div>
+      </div>
+
+      <div class= "col-9">
+        <%= @customer.id %>
+
+        <%= form_with model:@customer, url: admin_customer_path(@customer.id) do |f| %>
+
+          <div class= "mt-2">
+          <%= f.text_field :last_name %>
+          <%= f.text_field :first_name %>
+          </div>
+          <div class= "mt-2">
+          <%= f.text_field :last_name_kana %>
+          <%= f.text_field :first_name_kana %>
+          </div>
+          <div class= "mt-2">
+          <%= f.text_field :postal_code %>
+          </div>
+         <div class= "mt-2">
+          <%= f.text_field :address %>
+          </div>
+          <div class= "mt-2">
+          <%= f.text_field :telephone_number %>
+          </div>
+          <div class= "mt-2">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+          <div class= "mt-2">
+          <%= f.radio_button :is_active, 'true' %>
+          <%= f.label :is_active, '有効', value: true %>
+          <%= f.radio_button :is_active, "false" %>
+          <%= f.label :is_active, "退会", value: false %>
+          </div>
+          <div>
+          <%= f.submit "変更を保存", class: "btn btn-sm btn-success" %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+

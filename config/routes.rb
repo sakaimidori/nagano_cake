@@ -35,7 +35,7 @@ Rails.application.routes.draw do
  get 'orders/thanx' => 'public/orders#thanx'
  post 'orders' => 'public/orders#create'
  get 'orders' => 'public/orders#index'
- get 'orders/:id' => 'public/orders#show'
+ get 'orders/:id' => 'public/orders#show', as: 'order'
 
   # 顧客用
   # URL /customers/sign_in ...

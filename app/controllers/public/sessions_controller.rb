@@ -4,9 +4,25 @@ class Public::SessionsController < Devise::SessionsController
 
 
 
+before_action  :customer_state, only: [:create]
 
 
+protected
+  #退会しているかを確認するメソッド
+  def customer_state
 
+    #入力された email から該当のアカウントを取得
+    @customer = Customer.find_by(email: params[:customer][:email])
+    #アカウントを取得できなかった場合、このメソッドを終了
+    return if !@customer
+    #取得できた場合、パスワードが一致しているか判別
+    if @customer.valid_password?(params[:customer][:password]) && (@customer.is_active == false)
+      redirect_to new_customer_registration_path
+    end
+
+  end
+
+end
 
 
 
@@ -33,4 +49,4 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-end
+

@@ -19,9 +19,16 @@
 
 
 
+
+
       order_item:
         product_status:
           impossible_making: "製作不可"
           wating_making: "製作待ち"
           making: "製作中"
           finish_making: "製作完了"
+
+
+
+
+

@@ -1,24 +1,25 @@
-<div class="container">
+<div class="container text-center mt-5">
   <div class="row">
 
-      <div class="col-lg-4">
+      <div class="col-lg-5">
         <%= image_tag @item.get_item_image(300,300) %>
       </div>
 
-      <div class="col-lg-8">
+      <div class="col-lg-5">
 
-        <div class= "item_name">
+        <h3 class= "item_name">
           <%= @item.name %>
-        </div>
+        </h3>
 
-        <div class= "item_introduction">
+        <div class= "item_introduction mt-3">
           <%= @item.introduction %>
         </div>
 
-        <div class= "item_price">
+        <div class= "item_price mt-5">
           ￥<%= @item.add_tax_price %>(税込)
         </div>
 
+        <% if @item.is_active == true %>
 
           <%= form_with model: @cart_item, url:cart_items_path, method: :post do |f| %>
 
@@ -28,8 +29,12 @@
 
             <%= f.submit "カートに入れる", class: "btn btn-sm btn-success" %>
 
-
           <% end %>
+
+        <% else %>
+
+          <div class= "text-danger font-weight-bold mt-3">売り切れ</div>
+        <% end %>
 
       </div>
   </div>
