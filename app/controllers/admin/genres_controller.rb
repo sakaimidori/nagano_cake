@@ -9,7 +9,7 @@ before_action :authenticate_admin!
   end
 
   def index
-    @genres = Genre.all
+    @genres = Genre.page(params[:page])
     @genre = Genre.new
   end
 
