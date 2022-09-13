@@ -7,30 +7,29 @@
     <p>購入には会員登録が必要になります。</p>
   </div>
 
-  <h2>新着商品</h2>
+  <h2 class= "m-5">新着商品</h2>
 
-    <div class="row">
-      <div class=”col-3″>
+    <div class= "d-flex flex-wrap">
+
         <% @items.each do |item| %>
+          <div style="width:25%; ">
+            <div>
+              <%= image_tag item.get_item_image(200,100) %>
+            </div>
 
-              <%= image_tag item.get_item_image(300,200) %>
+            <div>
+              <%= link_to item_path(item.id) do %>
+                <%= item.name %>
+              <% end %>
+            </div>
 
+            <div>
+              ￥<%= item.price %>
+            </div>
 
-
-            <%= link_to item_path(item.id) do %>
-              <%= item.name %>
-            <% end %>
-
-
-
-            ￥<%= item.price %>
-
-
+          </div>
         <% end %>
-      </div>
     </div>
-
-
 
 
 </div>
